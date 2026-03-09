@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+    ports:
+      - "8000:80"
+    volumes:
+      # Map the current directory to the container document root for live editing
+      - .:/var/www/html/
+      # Make uploads explicitly permanent on the host
+      - ./uploads:/var/www/html/uploads
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: injaz
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  db_data:
