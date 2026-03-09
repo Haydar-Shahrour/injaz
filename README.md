@@ -51,9 +51,7 @@ The app will be available at **http://localhost:8000**.
 
 | Username | Password   |
 |----------|------------|
-| admin    | admin123   |
-| hydar    | 123321     |
-| ali      | aliali     |
+| admin    | admin123   | 
 
 ---
 
